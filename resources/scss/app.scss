@@ -10,3 +10,84 @@ $fa-font-path: "../fonts/webfonts" !default;
 @import "~@fortawesome/fontawesome-free/scss/brands";
 
 @import '~bootstrap/scss/bootstrap';
+
+// General Config
+body {
+    background-color: $dark-bg;
+}
+
+
+ul {
+    list-style-type: none;
+    background-color: $main-color;
+
+    li {
+        background-color: $dark-bg;
+
+        a {
+            color: white;
+
+            &:hover {
+                color: red;
+                cursor: pointer;
+            }
+        }
+
+    }
+}
+
+
+//Dashboard row config
+.myRow {
+    .card {
+        background-color: $main-color;
+        color: white;
+    }
+}
+
+//Navbar config
+.navbar {
+    background-color: $dark-bg;
+
+    .nav-link {
+        color: white;
+        font-size: 25px;
+
+        &:hover {
+            color: red;
+        }
+    }
+
+    .logo_portfolio {
+        width: 100px;
+        height: 100px;
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+.dropdown-menu {
+    background-color: $main-color;
+
+    .dropdown-item {
+        color: white;
+
+        &:hover {
+            color: red;
+            background-color: $dark-bg;
+        }
+    }
+}
+
+
+//Login and Register page config
+.loginCard,
+.registerCard {
+    background-color: $main-color;
+    color: white;
+    padding: 2rem;
+    border-radius: 1rem;
+}
