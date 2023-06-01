@@ -23,13 +23,11 @@
     <div id="app">
 
 
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md shadow-sm">
             <div class="container">
                 <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
-                    <div class="logo_laravel">
-                        <svg viewBox="0 0 651 192" fill="none" xmlns="http://www.w3.org/2000/svg"
-                            style="width: 150px">
-                        </svg>
+                    <div class="logo_portfolio">
+                        <img src="/img/logo.avif" alt="logo">
                     </div>
                     {{-- config('app.name', 'Laravel') --}}
                 </a>
