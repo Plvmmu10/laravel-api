@@ -6,7 +6,7 @@
             <div class="col">
                 <div class="card">
                     <div class="card-header">
-                        <h3>Dashboard di {{ Auth::user()->name }}</h3>
+                        <h3>Dashboard of {{ Auth::user()->name }}</h3>
                     </div>
 
                     <div class="card-body">
@@ -16,19 +16,14 @@
                             </div>
                         @endif
 
-                        <h4>Ecco la lista di tutti i tuoi progetti!</h4>
+                        <h4>Where do you want to go?</h4>
 
                         <div>
                             <ul class="list-style-none p-3">
                                 <li class="p-3 m-2">
-                                    <a href="#" class="text-decoration-none">
-                                        laravel-auth
-                                    </a>
-                                </li>
-
-                                <li class="p-3 m-2">
-                                    <a href="#" class="text-decoration-none">
-                                        html-css-discord
+                                    <a href="{{ route('admin.projects.index') }}" class="text-decoration-none">
+                                        <h4>Projects List
+                                        </h4>
                                     </a>
                                 </li>
                             </ul>
