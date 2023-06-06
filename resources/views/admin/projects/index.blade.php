@@ -20,12 +20,12 @@
                     </div>
 
                     <div class="d-flex">
-                        <a href="{{ route('admin.projects.show', $project->slug) }}"><i
+                        <a href="{{ route('admin.projects.show', $project) }}"><i
                                 class="fa-solid fa-circle-info fs-4"></i></a>
-                        <a href="{{ route('admin.projects.edit', $project->slug) }}"><i
+                        <a href="{{ route('admin.projects.edit', $project) }}"><i
                                 class="fa-solid fa-pen-to-square fs-4 px-3"></i></a>
 
-                        <form action="{{ route('admin.projects.destroy', $project->slug) }}" method="POST">
+                        <form action="{{ route('admin.projects.destroy', $project) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button class="bg-transparent text-white border-0">
