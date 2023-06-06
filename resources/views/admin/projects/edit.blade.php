@@ -3,7 +3,7 @@
 @section('content')
     <div class="container d-flex justify-content-center">
         <div class="w-50 text-white mt-5">
-            <form action="" method="POST">
+            <form action="{{ route('admin.projects.update', $project->slug) }}" method="POST">
                 @csrf
                 @method('PUT')
                 {{-- Name --}}
