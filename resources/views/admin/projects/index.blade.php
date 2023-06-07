@@ -19,6 +19,11 @@
                         <h4 class="fw-bold">{{ $project->name }}</h4>
                     </div>
 
+                    <div>
+                        <img src="" alt="">
+                        <p>{{ $project->technology->name }}</p>
+                    </div>
+
                     <div class="d-flex">
                         <a href="{{ route('admin.projects.show', $project) }}"><i
                                 class="fa-solid fa-circle-info fs-4"></i></a>
