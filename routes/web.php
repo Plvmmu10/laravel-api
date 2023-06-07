@@ -26,6 +26,9 @@ Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(
 
     //Route to the project
     Route::resource('projects', ProjectController::class)->parameters(['projects' => 'project:slug']);
+
+    //Route to the technologies
+    Route::resource('technologies', TechnologyController::class);
 });
 
 

@@ -41,6 +41,24 @@
                     @enderror
                 </div>
 
+                {{-- Technology --}}
+                <div class="mb-3">
+                    <label for="technology_id">Technology</label>
+                    <select name="technology_id" id="technology_id"
+                        class="form-control @error('technology_id') is-invalid @enderror">
+                        <option value="">Choose Technology</option>
+                        @foreach ($technologies as $technology)
+                            <option value="{{ $technology->id }}">
+                                {{ $technology->name }}
+                            </option>
+                        @endforeach
+                    </select>
+
+                    @error('technology_id')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+
                 <button type="submit" class="btn btn-outline-primary">Create</button>
                 <button type="reset" class="btn btn-outline-danger">Reset</button>
                 <button class="btn btn-outline-success">

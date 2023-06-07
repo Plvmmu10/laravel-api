@@ -20,8 +20,7 @@
                     </div>
 
                     <div>
-                        <img src="" alt="">
-                        <p>{{ $project->technology->name }}</p>
+                        <p class="fw-bold">{{ $project->technology->name }}</p>
                     </div>
 
                     <div class="d-flex">

@@ -14,6 +14,13 @@
                         <p>{{ $project->description }}</p>
                     </div>
 
+                    <div>
+
+                        <div class="tech-img mt-5">
+                            <img src="/img/{{ $project->technology->image }}">
+                        </div>
+                    </div>
+
                     <div class="pt-5">
                         <button class="btn btn-outline-success">
                             <a href="{{ route('admin.projects.index') }}">Project List</a>
