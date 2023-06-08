@@ -3,6 +3,14 @@
 @section('content')
     <div class="container d-flex justify-content-center">
         <div class="w-50 text-white mt-5">
+            {{-- Errors Section --}}
+            @if ($errors->any())
+                <div class="alert alert-danger mt-2">
+                    @error('name')
+                        <p>{{ $message }}</p>
+                    @enderror
+                </div>
+            @endif
             <form action="{{ route('admin.projects.update', $project->slug) }}" method="POST">
                 @csrf
                 @method('PUT')
@@ -44,6 +52,23 @@
                     @error('technology_id')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
+                </div>
+
+                {{-- Tags --}}
+                <div class="form-group">
+                    <p>Seleziona i Tag:</p>
+                    @foreach ($tags as $tag)
+                        <div>
+                            @if ($errors->any())
+                                <input type="checkbox" name="tags[]" value="{{ $tag->id }}" class="form-check-input"
+                                    {{ in_array($tag->id, old('tags', [])) ? 'checked' : '' }}>
+                            @else
+                                <input type="checkbox" name="tags[]" value="{{ $tag->id }}" class="form-check-input"
+                                    {{ $project->tags->contains($tag) ? 'checked' : '' }}>
+                            @endif
+                            <label for="" class="form-check-label">{{ $tag->name }}</label>
+                        </div>
+                    @endforeach
                 </div>
 
 
