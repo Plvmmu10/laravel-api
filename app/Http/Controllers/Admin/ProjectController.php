@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Project;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
+use App\Models\Tag;
 use App\Models\Technology;
 use Illuminate\Support\Str;
 
@@ -30,7 +31,8 @@ class ProjectController extends Controller
     public function create()
     {
         $technologies = Technology::all();
-        return view('admin.projects.create', compact('technologies'));
+        $tags = Tag::all();
+        return view('admin.projects.create', compact('technologies', 'tags'));
     }
 
     /**
@@ -46,6 +48,10 @@ class ProjectController extends Controller
         $data['slug'] = $slug;
 
         $project = Project::create($data);
+
+        if ($request->has('tags')) {
+            $project->tags()->attach($request->tags);
+        }
         return redirect()->route('admin.projects.show', $project->slug);
     }
 
@@ -69,7 +75,9 @@ class ProjectController extends Controller
     public function edit(Project $project)
     {
         $technologies = Technology::all();
-        return view('admin.projects.edit', compact('project', 'technologies'));
+        $tags = Tag::all();
+
+        return view('admin.projects.edit', compact('project', 'technologies', 'tags'));
     }
 
     /**
@@ -84,6 +92,12 @@ class ProjectController extends Controller
         $data = $request->validated();
         $slug = Str::slug($request->name, '-');
         $data['slug'] = $slug;
+
+        if ($request->has('tags')) {
+            $project->tags()->sync($request->tags);
+        } else {
+            $project->tags()->sync([]);
+        }
 
         $project->update($data);
         return redirect()->route('admin.projects.show', $project->slug);
