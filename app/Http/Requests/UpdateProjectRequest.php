@@ -27,16 +27,18 @@ class UpdateProjectRequest extends FormRequest
             'name' => 'required|unique:projects|min:3',
             'image' => 'nullable',
             'description' => 'nullable',
-            'technology_id' => 'nullable|exists:technologies,id'
+            'technology_id' => 'required|exists:technologies,id',
+            'tags' => 'nullable|exists:tags,id'
         ];
     }
 
     public function messages()
     {
         return [
-            'title.required' => 'The title is required',
-            'title.unique:projects' => 'Title has to be unique',
-            'title.min' => 'Title has to be at least 3 characters long'
+            'name.required' => 'The name is required',
+            'name.unique:projects' => 'Name has to be unique',
+            'name.min' => 'Name has to be at least 3 characters long',
+            'technology_id.required' => 'Technology is required'
         ];
     }
 }
