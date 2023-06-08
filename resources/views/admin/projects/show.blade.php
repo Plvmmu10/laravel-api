@@ -15,10 +15,19 @@
                     </div>
 
                     <div>
-
                         <div class="tech-img mt-5">
                             <img src="/img/{{ $project->technology->image }}">
                         </div>
+                    </div>
+
+                    <div class="pt-5">
+                        @if ($project->tags && count($project->tags) > 0)
+                            <div>
+                                @foreach ($project->tags as $tag)
+                                    <a class="badge rounded-pill text-bg-danger text-white">{{ $tag->name }}</a>
+                                @endforeach
+                            </div>
+                        @endif
                     </div>
 
                     <div class="pt-5">
@@ -30,9 +39,14 @@
                             <a href="{{ route('admin.projects.edit', $project->slug) }}">Edit</a>
                         </button>
 
-                        <button class="btn btn-outline-danger">
-                            <a href="{{ route('admin.projects.destroy', $project->slug) }}">Delete</a>
-                        </button>
+                        <form action="{{ route('admin.projects.destroy', $project->slug) }}" method="POST"
+                            class="d-inline">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-outline-danger text-white" type="submit">
+                                Delete
+                            </button>
+                        </form>
                     </div>
                 </div>
             </div>
