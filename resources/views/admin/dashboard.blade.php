@@ -26,6 +26,12 @@
                                         </h4>
                                     </a>
                                 </li>
+                                <li class="p-3 m-2">
+                                    <a href="{{ route('admin.technologies.index') }}" class="text-decoration-none">
+                                        <h4>Technologies List
+                                        </h4>
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>
